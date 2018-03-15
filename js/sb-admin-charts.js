@@ -16,24 +16,39 @@ function timestampToMyString(myTimestamp){
   return myString;
 }
 
-// Exemples datas
+// Examples datas
 var date1 = timestampToMyString(1382086394000);
 var date2 = timestampToMyString(1382096395000);
 var date3 = timestampToMyString(1382186396000);
 var date4 = timestampToMyString(1382286397000);
 var date5 = timestampToMyString(1382386398000);
 
-var TempData1 = 36;
-var TempData2 = 37;
-var TempData3 = 35;
-var TempData4 = 40;
-var TempData5 = 43;
+var tempData1 = 36;
+var tempData2 = 37;
+var tempData3 = 35;
+var tempData4 = 40;
+var tempData5 = 43;
+
+var oxygeneData1 = 80;
+var oxygeneData2 = 83;
+var oxygeneData3 = 86;
+var oxygeneData4 = 90;
+var oxygeneData5 = 87;
+
+var pressData1 = 10;
+var pressData2 = 12;
+var pressData3 = 15;
+var pressData4 = 13;
+var pressData5 = 16;
+
+// Constants
+var symbolTemp = "°C";
+var symbolOxygene = "%";
 
 // -- Area Chart 1
-var ctx = document.getElementById("myAreaChart");
+var ctx = document.getElementById("temperatureChart");
 var divLastTemp = document.getElementById("lastTemp");  
-divLastTemp.textContent = TempData5;  
-var text = divLastTemp.textContent;  
+divLastTemp.textContent = tempData5.toString().concat(symbolTemp);  
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -50,7 +65,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(0,165,0,1)",
       pointHitRadius: 20,
       pointBorderWidth: 2,
-      data: [TempData1, TempData2, TempData3, TempData4, TempData5],
+      data: [tempData1, tempData2, tempData3, tempData4, tempData5],
     }],
   },
   options: {
@@ -85,11 +100,13 @@ var myLineChart = new Chart(ctx, {
 
 
 // -- Area Chart 2
-var ctx = document.getElementById("myAreaChart2");
+var ctx = document.getElementById("oxygeneChart");
+var divLastOxygene = document.getElementById("lastOxygene");  
+divLastOxygene.textContent = oxygeneData5.toString().concat(symbolOxygene);  
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+    labels: [date1, date2, date3, date4, date5],
     datasets: [{
       label: "Sessions",
       lineTension: 0.3,
@@ -102,7 +119,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 20,
       pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+      data: [oxygeneData1, oxygeneData2, oxygeneData3, oxygeneData4, oxygeneData5],
     }],
   },
   options: {
@@ -121,7 +138,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 40000,
+          max: 100,
           maxTicksLimit: 5
         },
         gridLines: {
@@ -136,11 +153,13 @@ var myLineChart = new Chart(ctx, {
 });
 
 // -- Area Chart 3
-var ctx = document.getElementById("myAreaChart3");
+var ctx = document.getElementById("pressChart");
+var divLastPress = document.getElementById("lastPress");  
+divLastPress.textContent = pressData5.toString();
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
+    labels: [date1, date2, date3, date4, date5],
     datasets: [{
       label: "Sessions",
       lineTension: 0.3,
@@ -153,7 +172,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(255,225,0,1)",
       pointHitRadius: 20,
       pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+      data: [pressData1, pressData2, pressData3, pressData4, pressData5],
     }],
   },
   options: {
@@ -172,7 +191,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 40000,
+          max: 30,
           maxTicksLimit: 5
         },
         gridLines: {

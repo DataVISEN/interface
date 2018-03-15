@@ -17,6 +17,44 @@
 </head>
 
 <body id="page-top">
+    <div class="container">
+    <div class="span3 well">
+        <center>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="../img/patient.jpg" name="patient" width="140" height="140" class="img-circle">
+        <h3>Thibault Napoléon</h3>
+        <em>Cliquez pour plus d'informations</em></a>
+		</center>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">Détails du patient</h4>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                    <img src="../img/patient.jpg" name="patient" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading">Thibault Napoléon</h3>
+                    <hr>
+                    <center>
+                    <span class="text-left"><strong>Civilité: </strong><center>M.</center></span><br>
+                    <span class="text-left"><strong>Téléphone: </strong><center>02 98 03 88 36</center></span><br>
+                    <span class="text-left"><strong>Email: </strong><center>thibault.napoleon@isen-ouest.yncrea.fr</center></span><br>
+                    <span class="text-left"><strong>Date de naissance: </strong><center>14/10/1983</center></span><br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
     <div class="container-fluid">
       
       <!-- Area Chart 1-->
@@ -26,7 +64,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-8 my-auto">
-              <canvas id="myAreaChart" width="100" height="50"></canvas>
+              <canvas id="temperatureChart" width="100" height="50"></canvas>
             </div>
             <div class="col-sm-4 text-center my-auto">
               <div class="h1 mb-0 text-success" id="lastTemp"></div>
@@ -42,10 +80,10 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-8 my-auto">
-              <canvas id="myAreaChart2" width="100" height="50"></canvas>
+              <canvas id="oxygeneChart" width="100" height="50"></canvas>
             </div>
             <div class="col-sm-4 text-center my-auto">
-              <div class="h1 mb-0 text-primary">80%</div>
+              <div class="h1 mb-0 text-primary" id="lastOxygene"></div>
             </div>
           </div>
         </div>
@@ -58,10 +96,10 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-8 my-auto">
-              <canvas id="myAreaChart3" width="100" height="50"></canvas>
+              <canvas id="pressChart" width="100" height="50"></canvas>
             </div>
             <div class="col-sm-4 text-center my-auto">
-              <div class="h1 mb-0 text-warning">12</div>
+              <div class="h1 mb-0 text-warning" id="lastPress"></div>
             </div>
           </div>
         </div>
