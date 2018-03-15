@@ -77,9 +77,12 @@
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
+          requestAnimationFrame(tick);
         }
       }
-      requestAnimationFrame(tick);
+        else{
+            requestAnimationFrame(tick);
+        }
     }
               
      function checkDB(data){
