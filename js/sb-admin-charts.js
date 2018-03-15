@@ -54,7 +54,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: [date1, date2, date3, date4, date5],
     datasets: [{
-      label: "Sessions",
+      label: "Température (en °C) ",
       lineTension: 0.3,
       backgroundColor: "rgba(0,165,0,0.2)",
       borderColor: "rgba(0,165,0,1)",
@@ -108,7 +108,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: [date1, date2, date3, date4, date5],
     datasets: [{
-      label: "Sessions",
+      label: "Taux d'oxygène (en %) ",
       lineTension: 0.3,
       backgroundColor: "rgba(2,117,216,0.2)",
       borderColor: "rgba(2,117,216,1)",
@@ -161,7 +161,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: [date1, date2, date3, date4, date5],
     datasets: [{
-      label: "Sessions",
+      label: "Pression artérielle ",
       lineTension: 0.3,
       backgroundColor: "rgba(255,225,0,0.2)",
       borderColor: "rgba(255,225,0,1)",

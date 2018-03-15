@@ -21,6 +21,7 @@ body.fixed-nav {
 
 a{
    color: #343a40;
+   text-decoration:none; 
 }
 
 .span3{
