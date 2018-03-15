@@ -2,25 +2,78 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>DataVIsen</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  		<link rel="stylesheet" href="/resources/demos/style.css">
+  		 
+  		 <!-- Bootstrap core CSS-->
+  		<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+ 		<!-- Custom fonts for this template-->
+  		<link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+  		<!-- Custom styles for this template-->
+  		<link href="../css/sb-admin.css" rel="stylesheet">
+  		<!-- Bootstrap core JavaScript-->
+	    <script src="../vendor/jquery/jquery.js"></script>
+	    <script src="../vendor/bootstrap/js/bootstrap.bundle.js"></script>
+	    <!-- Core plugin JavaScript-->
+	    <script src="../vendor/jquery-easing/jquery.easing.js"></script>
+	    <!-- Page level plugin JavaScript-->
+	    <script src="../vendor/chart.js/Chart.js"></script>
+	    <!-- Custom scripts for all pages-->
+	    <script src="../js/sb-admin.js"></script>
+	    <!-- Custom scripts for this page-->
+	    <script src="../js/sb-admin-charts.js"></script>
+ 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  		<script>
+  			$( function() {
+    		$( "#datepicker" ).datepicker();	} );
+  		</script>
     </head>
 
 	<body>
 		<div id="history_page_name">
 			Historique
 		</div>
-		<h1 id="history_title"> </h1>
-		<div id="history_date_selection">
-			<label>Sélectionner la date à visualiser : </label>
-		</div>
-		<div id="history_data">
-			<label id="history_data_title"></label>
-			<label>Min :</label> <label id="history_min_label"></label></br>
-			<label>Max :</label><label id="history_max_label"></label></br> 
-			<label>Moyenne :</label><label id="history_average_label"></label></br>	
-		</div>
-		<div id="history_graph">
-			<h2 id="history_graph_title"> </h2>
+		<!--<div class="container">
+			<div class="row">	
+				<div id="history_date_selection" class="col-6, border border-dark">
+					<h1 id="history_title" > </h1>
+						<label>Sélectionner la date à visualiser : </label>
+						<p>Date: <input type="text" id="datepicker"></p>
+				</div>
+				
+				<div id="history_graph" class="col-6, border border-dark">
+						<h2 id="history_graph_title">truc</h2>
+				</div>
+			</div>
+			<!-- <div id="history_data" class="border border-dark, float-right">
+					<label id="history_data_title"></label>
+					<label>Min :</label> <label id="history_min_label"></label></br>
+					<label>Max :</label><label id="history_max_label"></label></br> 
+					<label>Moyenne :</label><label id="history_average_label"></label></br>	
+				</div> 
+		</div>-->
+		<div class="container">
+			<div class="row">
+			  <div id="history_date_selection" class="col-6, border border-dark, w-50, mr-5">
+			  	<h1 id="history_title" > </h1>
+				<label>Sélectionner la date à visualiser : </label>
+				<p>Date: <input type="text" id="datepicker"></p>
+			  	
+				<div id="history_graph" class="col-6, border border-dark">
+					<h2 id="history_graph_title">truc</h2>
+				</div>
+			  
+			</div>
+			<div id="history_data" class="col-6, border border-dark, w-50">
+			  	<label id="history_data_title"></label></br>
+			  	<label id="history_data_value"> </label></br>
+				<label>Min :</label> <label id="history_min_label"></label></br>
+				<label>Max :</label><label id="history_max_label"></label></br> 
+				<label>Moyenne :</label><label id="history_average_label"></label></br></div>
+			</div>
 		</div>
     </body>
 </html>
