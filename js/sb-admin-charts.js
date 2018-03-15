@@ -16,24 +16,26 @@ function timestampToMyString(myTimestamp){
   return myString;
 }
 
-// Exemples datas
+// Examples datas
 var date1 = timestampToMyString(1382086394000);
 var date2 = timestampToMyString(1382096395000);
 var date3 = timestampToMyString(1382186396000);
 var date4 = timestampToMyString(1382286397000);
 var date5 = timestampToMyString(1382386398000);
 
-var TempData1 = 36;
-var TempData2 = 37;
-var TempData3 = 35;
-var TempData4 = 40;
-var TempData5 = 43;
+var tempData1 = 36;
+var tempData2 = 37;
+var tempData3 = 35;
+var tempData4 = 40;
+var tempData5 = 43;
+
+// Constants
+var symbolTemp = "°C";
 
 // -- Area Chart 1
 var ctx = document.getElementById("myAreaChart");
 var divLastTemp = document.getElementById("lastTemp");  
-divLastTemp.textContent = TempData5;  
-var text = divLastTemp.textContent;  
+divLastTemp.textContent = tempData5.toString().concat(symbolTemp);  
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -50,7 +52,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(0,165,0,1)",
       pointHitRadius: 20,
       pointBorderWidth: 2,
-      data: [TempData1, TempData2, TempData3, TempData4, TempData5],
+      data: [tempData1, tempData2, tempData3, tempData4, tempData5],
     }],
   },
   options: {
