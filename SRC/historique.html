@@ -12,41 +12,20 @@
   		<link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
   		<!-- Custom styles for this template-->
   		<link href="../css/sb-admin.css" rel="stylesheet">
-  		<script>
-  			$( function() {
-    		$( "#datepicker" ).datepicker();	} );
-  		</script>
+  		
     </head>
 
 	<body>
 		<div id="history_page_name">
 			Historique
 		</div>
-		<!--<div class="container">
-			<div class="row">	
-				<div id="history_date_selection" class="col-6, border border-dark">
-					<h1 id="history_title" > </h1>
-						<label>Sélectionner la date à visualiser : </label>
-						<p>Date: <input type="text" id="datepicker"></p>
-				</div>
-				
-				<div id="history_graph" class="col-6, border border-dark">
-						<h2 id="history_graph_title">truc</h2>
-				</div>
-			</div>
-			<!-- <div id="history_data" class="border border-dark, float-right">
-					<label id="history_data_title"></label>
-					<label>Min :</label> <label id="history_min_label"></label></br>
-					<label>Max :</label><label id="history_max_label"></label></br> 
-					<label>Moyenne :</label><label id="history_average_label"></label></br>	
-				</div> 
-		</div>-->
+
 		<div class="container">
-			<div class="row">
-			  <div id="history_date_selection" class="col-6, border border-dark, w-50, mr-3">
+			<div class="row, h-100">
+			  <div id="history_date_selection" class="col-6, border border-dark, w-50, m-3">
 			  	<h1 id="history_title" > </h1>
 				<label class="p-2">Sélectionner la date à visualiser : </label>
-				<p>Date: <input type="text" id="datepicker"></p>
+				<p class="m-3">Date: <input type="text" id="datepicker"> <button type="button" class="btn btn-primary">Valider</button></p>
 			  	
 				<div id="history_graph" class="col-6, border border-dark">
 					<!-- Area Chart 1-->
@@ -91,6 +70,10 @@
 	    <script src="../js/sb-admin-charts.js"></script>
  		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  		<script>
+  			$( function() {
+    		$( "#datepicker" ).datepicker();	} );
+  		</script>
       </div>
     </body>
 </html>
