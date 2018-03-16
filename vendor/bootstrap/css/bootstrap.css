@@ -8824,6 +8824,14 @@ button.bg-dark:focus {
   color: #fff !important;
 }
 
+.text-red {
+  color: #F41A1A;
+}
+
+.text-purple {
+  color: #8A1DC7;
+}
+
 .text-primary {
   color: #007bff !important;
 }

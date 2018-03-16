@@ -6,22 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <META HTTP-EQUIV="Refresh" CONTENT="30">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>DataVisen</title>
   <!-- Bootstrap core CSS-->
   <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body id="page-top">
     <div class="container">
     <div class="span3 well">
         <center>
-        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="../img/patient.jpg" name="patient" width="201" height="244" class="img-circle">
-        <h3>Thibault Napoléon</h3>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal">
+          <!-- <img src="../img/patient.jpg" name="patient" width="201" height="244" class="img-circle"> -->
+        <h3><span id="patient_name"/></h3>
         <em>Cliquez pour plus d'informations</em></a>
 		</center>
     </div>
@@ -35,14 +38,13 @@
                     </div>
                 <div class="modal-body">
                     <center>
-                    <img src="../img/patient.jpg" name="patient" width="201" height="244" border="0" class="img-circle"></a>
-                    <h3 class="media-heading">Thibault Napoléon</h3>
+                    <h3 class="media-heading"><span id="patient_name2"/></h3>
                     <hr>
                     <center>
-                    <span class="text-left"><strong>Civilité: </strong><center>M.</center></span><br>
-                    <span class="text-left"><strong>Téléphone: </strong><center>02 98 03 88 36</center></span><br>
-                    <span class="text-left"><strong>Email: </strong><center>thibault.napoleon@isen-ouest.yncrea.fr</center></span><br>
-                    <span class="text-left"><strong>Date de naissance: </strong><center>14/10/1983</center></span><br>
+                    <span class="text-left"><strong>Civilité: </strong><center><span id="patient_gender"/></center></span><br>
+                    <!-- <span class="text-left"><strong>Téléphone: </strong><center>02 98 03 88 36</center></span><br>
+                    <span class="text-left"><strong>Email: </strong><center>thibault.napoleon@isen-ouest.yncrea.fr</center></span><br> -->
+                    <span class="text-left"><strong>Date de naissance: </strong><center><span id="patient_birth"/></center></span><br>
                     </center>
                 </div>
                 <div class="modal-footer">
@@ -56,8 +58,12 @@
 </div>
     
     <div class="container-fluid">
+
+      <label class="p-2">Affichage des valeurs depuis le : <span id="from_date"/></label><br>
+      <label class="p-2">Sélectionner la date de commencement : </label>
+      <p class="m-3">Date: <input type="text" id="datepicker"> <button type="button" class="btn btn-primary" onclick="getDate();">Valider</button></p>
       
-      <!-- Area Chart 1-->
+      <!-- Area Chart Temperature-->
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-area-chart"></i> Température</div>
@@ -68,12 +74,15 @@
             </div>
             <div class="col-sm-4 text-center my-auto">
               <div class="h1 mb-0 text-success" id="lastTemp"></div>
+              <div class="h6 mb-0 text-success">Min : <span id="minTemp"/></div>
+              <div class="h6 mb-0 text-success">Max : <span id="maxTemp"/></div>
+              <div class="h6 mb-0 text-success">Moy : <span id="moyTemp"/></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Area Chart 2-->
+      <!-- Area Chart Oxygen-->
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-area-chart"></i> Taux d'oxygène</div>
@@ -83,27 +92,93 @@
               <canvas id="oxygeneChart" width="100" height="50"></canvas>
             </div>
             <div class="col-sm-4 text-center my-auto">
-              <div class="h1 mb-0 text-primary" id="lastOxygene"></div>
+              <div class="h1 mb-0 text-primary" id="lastOxygen"></div>
+              <div class="h6 mb-0 text-primary">Min : <span id="minOxygen"/></div>
+              <div class="h6 mb-0 text-primary">Max : <span id="maxOxygen"/></div>
+              <div class="h6 mb-0 text-primary">Moy : <span id="moyOxygen"/></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Area Chart 3-->
+      <!-- Area Chart ArterialPressureDia-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> Pression artérielle</div>
+          <i class="fa fa-area-chart"></i> Pression artérielle diastolique</div>
         <div class="card-body">
           <div class="row">
             <div class="col-sm-8 my-auto">
-              <canvas id="pressChart" width="100" height="50"></canvas>
+              <canvas id="pressDiaChart" width="100" height="50"></canvas>
             </div>
             <div class="col-sm-4 text-center my-auto">
-              <div class="h1 mb-0 text-warning" id="lastPress"></div>
+              <div class="h1 mb-0 text-warning" id="lastPressDia"></div>
+              <div class="h6 mb-0 text-warning">Min : <span id="minPressDia"/></div>
+              <div class="h6 mb-0 text-warning">Max : <span id="maxPressDia"/></div>
+              <div class="h6 mb-0 text-warning">Moy : <span id="moyPressDia"/></div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Area Chart ArterialPressureSys-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Pression artérielle systolique</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8 my-auto">
+              <canvas id="pressSysChart" width="100" height="50"></canvas>
+            </div>
+            <div class="col-sm-4 text-center my-auto">
+              <div class="h1 mb-0 text-warning" id="lastPressSys"></div>
+              <div class="h6 mb-0 text-warning">Min : <span id="minPressSys"/></div>
+              <div class="h6 mb-0 text-warning">Max : <span id="maxPressSys"/></div>
+              <div class="h6 mb-0 text-warning">Moy : <span id="moyPressSys"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Area Chart Respiratory Rate-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Fréquence respiratoire</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8 my-auto">
+              <canvas id="respiratoryRateChart" width="100" height="50"></canvas>
+            </div>
+            <div class="col-sm-4 text-center my-auto">
+              <div class="h1 mb-0 text-purple" id="lastRespiratoryRate"></div>
+              <div class="h6 mb-0 text-purple">Min : <span id="minRespiratoryRate"/></div>
+              <div class="h6 mb-0 text-purple">Max : <span id="maxRespiratoryRate"/></div>
+              <div class="h6 mb-0 text-purple">Moy : <span id="moyRespiratoryRate"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Area Chart Heartbeat-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Rythme cardiaque</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8 my-auto">
+              <canvas id="heartbeatChart" width="100" height="50"></canvas>
+            </div>
+            <div class="col-sm-4 text-center my-auto">
+              <div class="h1 mb-0 text-red" id="lastHeartbeat"></div>
+              <div class="h6 mb-0 text-red">Min : <span id="minHeartbeat"/></div>
+              <div class="h6 mb-0 text-red">Max : <span id="maxHeartbeat"/></div>
+              <div class="h6 mb-0 text-red">Moy : <span id="moyHeartbeat"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
 
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -124,6 +199,22 @@
     <script src="../js/sb-admin.js"></script>
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-charts.js"></script>
+          <!-- Custom scripts for this page-->
+      <script src="../js/sb-admin-charts.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+        $( function() {
+        $( "#datepicker" ).datepicker({
+          dateFormat: 'dd/mm/yy',
+          monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+            dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+            dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+        }); 
+      } );
+      </script>
   </div>
 </body>
 

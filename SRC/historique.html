@@ -2,25 +2,36 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>DataVIsen</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  		 
+  		
+  		
     </head>
 
 	<body>
-		<div id="history_page_name">
-			Historique
-		</div>
-		<h1 id="history_title"> </h1>
-		<div id="history_date_selection">
-			<label>Sélectionner la date à visualiser : </label>
-		</div>
-		<div id="history_data">
-			<label id="history_data_title"></label>
-			<label>Min :</label> <label id="history_min_label"></label></br>
-			<label>Max :</label><label id="history_max_label"></label></br> 
-			<label>Moyenne :</label><label id="history_average_label"></label></br>	
-		</div>
-		<div id="history_graph">
-			<h2 id="history_graph_title"> </h2>
-		</div>
+
+				<label class="p-2">Sélectionner la date à visualiser : </label>
+				<p class="m-3">Date: <input type="text" id="datepicker"> <button type="button" class="btn btn-primary" onclick="getDate();">Valider</button></p>
+			  	
+
+	    <!-- Custom scripts for this page-->
+	    <script src="../js/sb-admin-charts.js"></script>
+ 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  		<script>
+  			$( function() {
+    		$( "#datepicker" ).datepicker({
+    			dateFormat: 'dd/mm/yy',
+    			monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        		monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        		dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        		dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+        		dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+    		});	
+    	} );
+  		</script>
+      </div>
     </body>
 </html>

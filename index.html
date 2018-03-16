@@ -35,7 +35,6 @@
     var outputContainer = document.getElementById("output");
     var outputMessage = document.getElementById("outputMessage");
     var outputData = document.getElementById("outputData");
-
     function drawLine(begin, end, color) {
       canvas.beginPath();
       canvas.moveTo(begin.x, begin.y);
@@ -44,7 +43,6 @@
       canvas.strokeStyle = color;
       canvas.stroke();
     }
-
     // Use facingMode: environment to attemt to get the front camera on phones
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
       video.srcObject = stream;
@@ -52,14 +50,12 @@
       video.play();
       requestAnimationFrame(tick);
     });
-
     function tick() {
       loadingMessage.innerText = "⌛ Loading video..."
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
         loadingMessage.hidden = true;
         canvasElement.hidden = false;
         outputContainer.hidden = false;
-
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
         canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
@@ -73,18 +69,33 @@
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
-            checkDB(code.data);
+        checkDB(code.data);
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
+          requestAnimationFrame(tick);
         }
       }
-      requestAnimationFrame(tick);
+        else{
+            requestAnimationFrame(tick);
+        }
     }
               
      function checkDB(data){
          if(data != ""){
-            document.location.href="./SRC/charts.html";
+            data=parseInt(data, 10)+57;
+            data=data*147854;
+            document.location.href="./SRC/charts.html?id="+data;
+             if(data == "rickroll"){
+                 document.location.href="https://rickrolled.fr";
+             }
+         }else{
+             outputData.innerText = "Fausse détection, rechargement ...";
+             requestAnimationFrame(tick);
+             //document.location.reload();
+           // requestAnimationFrame(tick);
+            
+            document.location.href="./SRC/charts.html?id=null";
          }
      }
            
