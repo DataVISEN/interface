@@ -5,32 +5,70 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>DataVIsen</title>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  		 
-  		
   		
     </head>
 
 	<body>
 
+
+
+		<a href="./charts.html"><button type="button" class="btn btn-secondary">Retour</button></a>
+		<div class="container">
+			<center>
+				<div id="history_page_name">
+					<h1>Historique</h1>
+				</div>
+			</center>
+			<div class="row, h-100">
+			  <div id="history_date_selection" class="col-6, border border-dark, w-50, m-3">
+			  	<h1 id="history_title" > </h1>
 				<label class="p-2">Sélectionner la date à visualiser : </label>
 				<p class="m-3">Date: <input type="text" id="datepicker"> <button type="button" class="btn btn-primary" onclick="getDate();">Valider</button></p>
 			  	
+				<div id="history_graph" class="col-6, border border-dark">
+					<!-- Area Chart 1-->
+				        <div class="card mb-3">
+				          <div class="card-header">
+				            <i id="history_graph_title" class="fa fa-area-chart"></i> Température</div>
+				          <div class="card-body">
+				            <div class="row">
+				              <div class="col-sm-8 my-auto">
+				                <canvas id="temperatureChart" width="100" height="50"></canvas>
+				              </div>
+				              <div class="col-sm-4 text-center my-auto">
+				                <div class="h1 mb-0 text-success" id="lastTemp"></div>
+				              </div>
+				            </div>
+				          </div>
+				        </div>
+				</div>
+			  
+			</div>
+			<div id="history_data" class="col-6, border border-dark, m-3">
+			  	<!--<label id="history_data_title"></label></br>
+			  	<label id="history_data_value"> </label></br>-->
+			  	<div class="p-2">
+			  		<center>
+					<label>Min : 35</label> <label id="history_min_label"></label></br>
+					<label>Max : 43</label><label id="history_max_label"></label></br> 
+					<label>Moyenne : 39</label><label id="history_average_label"></label></br></div>
+					<center>
+				</div>
+			</div>
+		</div>
 
-	    <!-- Custom scripts for this page-->
-	    <script src="../js/sb-admin-charts.js"></script>
- 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  		<script>
-  			$( function() {
-    		$( "#datepicker" ).datepicker({
-    			dateFormat: 'dd/mm/yy',
-    			monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        		monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-        		dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-        		dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-        		dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-    		});	
-    	} );
+		<div class="container-fluid">
+
+      <!-- Bootstrap core JavaScript-->
+	    <script src="../vendor/jquery/jquery.js"></script>
+	    <script src="../vendor/bootstrap/js/bootstrap.bundle.js"></script>
+	    <!-- Core plugin JavaScript-->
+	    <script src="../vendor/jquery-easing/jquery.easing.js"></script>
+	    <!-- Page level plugin JavaScript-->
+	    <script src="../vendor/chart.js/Chart.js"></script>
+	    <!-- Custom scripts for all pages-->
+	    <script src="../js/sb-admin.js"></script>
+
   		</script>
       </div>
     </body>

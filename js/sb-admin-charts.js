@@ -579,6 +579,8 @@ if ("WebSocket" in window)
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
+
+
 function timestampToMyString(myTimestamp){
 
   var hours = new Date(myTimestamp).getHours();
@@ -596,5 +598,4 @@ function timestampToMyString(myTimestamp){
 var symbolTemp = "°C";
 var symbolOxygene = "%";
 var symbolHeartbeat = " bpm";
-var symbolRespiratoryRate = " cycles";
-
+var symbolRespiratoryRate = " cpm";
