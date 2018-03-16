@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Datavisen</title>
+  <title>DataVISEN</title>
   <!-- Bootstrap core CSS-->
   <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -17,6 +17,7 @@
 </head>
 
 <body id="page-top">
+    <a href="../index.html"><button type="button" class="btn btn-secondary">Retour</button></a>
     <div class="container">
     <div class="span3 well">
         <center>
@@ -102,6 +103,38 @@
             </div>
             <div class="col-sm-4 text-center my-auto">
               <div class="h1 mb-0 text-warning" id="lastPress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Area Chart 4-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Rythme cardiaque</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8 my-auto">
+              <canvas id="cardiaqueChart" width="100" height="50"></canvas>
+            </div>
+            <div class="col-sm-4 text-center my-auto">
+              <div class="h1 mb-0 text-red" id="lastCardiaque"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Area Chart 5-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Fréquence respiratoire</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8 my-auto">
+              <canvas id="respiratoireChart" width="100" height="50"></canvas>
+            </div>
+            <div class="col-sm-4 text-center my-auto">
+              <div class="h1 mb-0 text-purpple" id="lastRespiratoire"></div>
             </div>
           </div>
         </div>
