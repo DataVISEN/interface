@@ -10,6 +10,7 @@
 <<<<<<< HEAD
   <title>DataVISEN</title>
 =======
+  <title>Datavisen</title>
 >>>>>>> 15d625fd532179c1e98aa1f801ec423f427593d5
   <!-- Bootstrap core CSS-->
   <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -62,9 +63,22 @@
     <div class="container-fluid">
       
       <!-- Area Chart 1-->
+      <a href="historique.html" onclick="historiqueTemperature();">
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-area-chart"></i> Température</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8 my-auto">
+                <canvas id="temperatureChart" width="100" height="50"></canvas>
+              </div>
+              <div class="col-sm-4 text-center my-auto">
+                <div class="h1 mb-0 text-success" id="lastTemp"></div>
+              </div>
             </div>
           </div>
         </div>
+      </a>
 
       <!-- Area Chart 2-->
       <div class="card mb-3">
@@ -117,6 +131,8 @@
     <script src="../js/sb-admin.js"></script>
     <!-- Custom scripts for this page-->
     <script src="../js/sb-admin-charts.js"></script>
+    <!-- Script for the historique page -->
+    <script src="../js/historique.js"></script>
   </div>
 </body>
 
