@@ -12,12 +12,15 @@
   		<link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
   		<!-- Custom styles for this template-->
   		<link href="../css/sb-admin.css" rel="stylesheet">
+
+  		<!-- script JS -->
+		<script src="../js/historique.js"></script>
   		
     </head>
 
 	<body>
 		<div id="history_page_name">
-			Historique
+			<h1>Historique</h1>
 		</div>
 
 		<div class="container">
@@ -25,7 +28,7 @@
 			  <div id="history_date_selection" class="col-6, border border-dark, w-50, m-3">
 			  	<h1 id="history_title" > </h1>
 				<label class="p-2">Sélectionner la date à visualiser : </label>
-				<p class="m-3">Date: <input type="text" id="datepicker"> <button type="button" class="btn btn-primary">Valider</button></p>
+				<p class="m-3">Date: <input type="text" id="datepicker"> <button type="button" class="btn btn-primary" onclick="getDate();">Valider</button></p>
 			  	
 				<div id="history_graph" class="col-6, border border-dark">
 					<!-- Area Chart 1-->
@@ -46,12 +49,14 @@
 				</div>
 			  
 			</div>
-			<div id="history_data" class="col-6, border border-dark, w-50">
+			<div id="history_data" class="col-6, border border-dark, w-50, m-3">
 			  	<label id="history_data_title"></label></br>
 			  	<label id="history_data_value"> </label></br>
-				<label>Min :</label> <label id="history_min_label"></label></br>
-				<label>Max :</label><label id="history_max_label"></label></br> 
-				<label>Moyenne :</label><label id="history_average_label"></label></br></div>
+			  	<div class="p-2">
+					<label>Min :</label> <label id="history_min_label"></label></br>
+					<label>Max :</label><label id="history_max_label"></label></br> 
+					<label>Moyenne :</label><label id="history_average_label"></label></br></div>
+				</div>
 			</div>
 		</div>
 
@@ -72,7 +77,16 @@
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<script>
   			$( function() {
-    		$( "#datepicker" ).datepicker();	} );
+
+    		$( "#datepicker" ).datepicker({
+    			dateFormat: 'dd/mm/yy',
+    			monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        		monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        		dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        		dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+        		dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+    		});	
+    	} );
   		</script>
       </div>
     </body>

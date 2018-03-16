@@ -3,6 +3,24 @@
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
+function setData(object) {
+ /*var object = new Object();
+ object.heartbeat = [
+        { temps: 1521053765000, valeur: 50 },
+        { temps: 1521073765000, valeur: 68 }];
+object.temperature =  [
+    { temps: 1521043765000, valeur: 36 },
+    { temps: 1521053765000, valeur: 40 },
+    { temps: 1521063765000, valeur: 37 },
+    { temps: 1521073765000, valeur: 45 }];*/
+ 
+  var index = object.temperature.length-1;
+  var tempData5 = object.temperature[index].valeur;
+
+  var divLastTemp = document.getElementById("lastTemp");  
+  divLastTemp.textContent = tempData5.toString().concat(symbolTemp);
+}
+
 function timestampToMyString(myTimestamp){
 
   var hours = new Date(myTimestamp).getHours();
@@ -49,6 +67,7 @@ var symbolOxygene = "%";
 var ctx = document.getElementById("temperatureChart");
 var divLastTemp = document.getElementById("lastTemp");  
 divLastTemp.textContent = tempData5.toString().concat(symbolTemp);  
+
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -205,3 +224,4 @@ var myLineChart = new Chart(ctx, {
   }
 });
 
+  setData();
